@@ -1,9 +1,21 @@
 <template>
   <div>
     <img alt="Vue logo" src="./assets/logo.png">
-    <input type="text" v-model="name" placeholder="Enter your name">
+    <div>
+      <input type="text" v-model="name" placeholder="Enter your name">
+    </div>
+    <div>
+      <input type="text" v-model="email" placeholder="Enter your email">
+    </div>
+    <div>
+      <input type="text" v-model="pw" placeholder="Enter your pw">
+    </div>
+    <div>
+      <input type="text" v-model="again_pw" placeholder="Check your pw">
+    </div>
     <button @click="submit">Submit</button>
   </div>
+  <!--
   <div>
     <ul>
       <li v-for="item in items" :key="item.id">
@@ -11,6 +23,7 @@
       </li>
     </ul>
   </div>
+  -->
 </template>
 
 
@@ -20,6 +33,10 @@ import axios from 'axios';
 export default {
   data() {
     return {
+      name: '',
+      email: '',
+      pw: '',
+      again_pw: '',
       items: [], // 빈 배열로 초기화하여 받은 아이템을 저장합니다.
     };
   },
@@ -33,6 +50,9 @@ export default {
       // 요청 페이로드를 준비합니다.
       const payload = {
         name: this.name,
+        email: this.email,
+        pw: this.pw,
+        again_pw: this.again_pw,
       };
 
       try {
