@@ -2,20 +2,20 @@
   <div>
     <img alt="Vue logo" src="./assets/logo.png">
     <div>
-      <input type="text" v-model="name" placeholder="Enter your name">
-      <span v-if="!nameFilled" style="color: red;">Please enter your name</span>
+      <input type="text" v-model="name" placeholder="이름을 입력해주세요.">
+      <span v-if="!nameFilled" style="color: red;">이름이 비어있습니다!</span>
     </div>
     <div>
-      <input type="text" v-model="email" placeholder="Enter your email">
-      <span v-if="!emailFilled" style="color: red;">Please enter your email</span>
+      <input type="email" v-model="email" placeholder="이메일을 입력해주세요.">
+      <span v-if="!emailFilled" style="color: red;">이메일이 비어있습니다!</span>
     </div>
     <div>
-      <input type="text" v-model="pw" placeholder="Enter your pw">
-      <span v-if="!pwFilled" style="color: red;">Please enter your pw</span>
+      <input type="password" v-model="pw" placeholder="비밀번호를 입력해주세요.">
+      <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
     </div>
     <div>
-      <input type="text" v-model="again_pw" placeholder="Check your pw">
-      <span v-if="!again_pwFilled" style="color: red;">Please enter your again_pw</span>
+      <input type="password" v-model="again_pw" placeholder="비밀번호 확인">
+      <span v-if="!checkpwFilled" style="color: red;">비밀번호가 일치하지 않습니다!</span>
     </div>
     <button @click="submit">Submit</button>
   </div>
@@ -44,7 +44,7 @@ export default {
       pw: '',
       pwFilled: true,
       again_pw: '',
-      again_pwFilled: true,
+      checkpwFilled: true,
       items: [], // 빈 배열로 초기화하여 받은 아이템을 저장합니다.
     };
   },
@@ -80,11 +80,13 @@ export default {
       } else {
         this.pwFilled = true;
       }
-      if (this.again_pw.trim() === '') {
-        this.again_pwFilled = false;
+      // 비빈어링 비번확인이랑 다른거 체크
+      if (this.pw !== this.again_pw) {
+        this.checkpwFilled = false;
       } else {
-        this.again_pwFilled = true;
+        this.checkpwFilled = true;
       }
+
 
       try {
         // POST 요청을 보냅니다.
