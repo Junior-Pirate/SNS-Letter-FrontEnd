@@ -10,6 +10,7 @@
       <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
     </div>
     <button @click="submit">Submit</button>
+
   </div>
   <!--
   <div>
@@ -67,6 +68,8 @@ export default {
 
         // 응답 데이터를 처리합니다.
         this.fetchItems();
+
+        alert("로그인에 성공하셨습니다!")
       } catch (error) {
         // 오류 처리
         console.error(error);
