@@ -90,7 +90,7 @@ export default {
 
       try {
         // POST 요청을 보냅니다.
-        await axios.post('http://localhost:9000/test', payload);
+        await axios.post('http://localhost:9000/register', payload);
 
         // 응답 데이터를 처리합니다.
         this.fetchItems();
@@ -103,7 +103,7 @@ export default {
     async fetchItems() {
       try {
         // GET 요청을 보냅니다.
-        const response = await axios.get('http://localhost:9000/test');
+        const response = await axios.get('http://localhost:9000/register');
 
         // 응답 데이터를 받아서 items에 저장합니다.
         this.items = response.data;
