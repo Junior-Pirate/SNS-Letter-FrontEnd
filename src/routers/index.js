@@ -6,7 +6,7 @@ import Login from "@/views/Login-component.vue";
 
 const routes = [
     {
-        path: "/",
+        path: "/home",
         name: "Home",
         component: Home,
     },

@@ -12,15 +12,6 @@
     <button @click="submit">Submit</button>
 
   </div>
-  <!--
-  <div>
-    <ul>
-      <li v-for="item in items" :key="item.id">
-        ID: {{ item.id }} | Name: {{ item.name }}
-      </li>
-    </ul>
-  </div>
-  -->
 </template>
 
 
@@ -69,7 +60,6 @@ export default {
         // 응답 데이터를 처리합니다.
         this.fetchItems();
 
-        alert("로그인에 성공하셨습니다!")
       } catch (error) {
         // 오류 처리
         console.error(error);
