@@ -1,6 +1,13 @@
 <template>
-  <div>
-    <img alt="Vue logo" src="../assets/logo.png">
+  <html>
+  <body>
+  <h1 id="title">Snsletter</h1>
+  <div id="div-right">
+    <button id="button" @click="movetohome">홈</button>
+    <button id="button" @click="movetologin">로그인</button>
+    <button id="button" @click="movetoregister">회원가입</button>
+  </div>
+  <div id="register-form">
     <div>
       <input type="text" v-model="name" placeholder="이름을 입력해주세요.">
       <span v-if="!nameFilled" style="color: red;">이름이 비어있습니다!</span>
@@ -17,17 +24,10 @@
       <input type="password" v-model="again_pw" placeholder="비밀번호 확인">
       <span v-if="!checkpwFilled" style="color: red;">비밀번호가 일치하지 않습니다!</span>
     </div>
-    <button @click="submit">Submit</button>
+    <button id="button" @click="submit">Submit</button>
   </div>
-  <!--
-  <div>
-    <ul>
-      <li v-for="item in items" :key="item.id">
-        ID: {{ item.id }} | Name: {{ item.name }}
-      </li>
-    </ul>
-  </div>
-  -->
+  </body>
+  </html>
 </template>
 
 
@@ -112,19 +112,31 @@ export default {
         console.error(error);
       }
     },
+    movetologin() {
+      window.location.href = '/login'
+    },
+    movetoregister() {
+      window.location.href = '/register'
+    },
+    movetohome() {
+      window.location.href = '/home'
+    },
   },
 };
 </script>
 
-
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#div-right {
+  float: right;
+  right: 40px;
+  position: relative;
+}
+
+#register-form {
+  background: #6654AE;
+  position: relative;
+  top: 40px;
+  border-radius: 40px;
+
 }
 </style>

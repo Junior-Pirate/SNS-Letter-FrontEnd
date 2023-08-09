@@ -1,7 +1,7 @@
 <template>
   <html>
   <body>
-  <div id="backgound">
+  <div>
     <h1 id="title">Snsletter</h1>
     <div>
       <button id="button" @click="movetologin">로그인</button>
@@ -27,9 +27,6 @@ export default {
     movetoregister() {
       window.location.href = '/register'
     },
-    movetosearch() {
-      window.location.href = '/search'
-    },
   },
 };
 </script>
@@ -50,14 +47,6 @@ export default {
 }
 
 body {
-  background: #2B2730;
-}
-
-#backgound {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
   background: #2B2730;
 }
 
