@@ -5,7 +5,6 @@
   <div id="div-right">
     <button id="button" @click="movetohome">홈</button>
     <button id="button" @click="movetologin">로그인</button>
-    <button id="button" @click="movetoregister">회원가입</button>
   </div>
   <div id="register-form">
     <div>
@@ -114,9 +113,6 @@ export default {
     },
     movetologin() {
       window.location.href = '/login'
-    },
-    movetoregister() {
-      window.location.href = '/register'
     },
     movetohome() {
       window.location.href = '/home'
