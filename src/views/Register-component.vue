@@ -8,20 +8,26 @@
   </div>
   <div id="register-form">
     <div>
-      <input type="text" v-model="name" placeholder="이름을 입력해주세요.">
-      <span v-if="!nameFilled" style="color: red;">이름이 비어있습니다!</span>
+      <p>HI</p>
     </div>
     <div>
-      <input type="email" v-model="email" placeholder="이메일을 입력해주세요.">
-      <span v-if="!emailFilled" style="color: red;">이메일이 비어있습니다!</span>
-    </div>
-    <div>
-      <input type="password" v-model="pw" placeholder="비밀번호를 입력해주세요.">
-      <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
-    </div>
-    <div>
-      <input type="password" v-model="again_pw" placeholder="비밀번호 확인">
-      <span v-if="!checkpwFilled" style="color: red;">비밀번호가 일치하지 않습니다!</span>
+      <div>
+        <input type="text" v-model="name" placeholder="이름을 입력해주세요.">
+        <span v-if="!nameFilled" style="color: red;">이름이 비어있습니다!</span>
+      </div>
+      <div>
+        <input type="email" v-model="email" placeholder="이메일을 입력해주세요.">
+        <span v-if="!emailFilled" style="color: red;">이메일이 비어있습니다!</span>
+      </div>
+      <div>
+        <input type="password" v-model="pw" placeholder="비밀번호를 입력해주세요.">
+        <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
+      </div>
+      <div>
+        <input type="password" v-model="again_pw" placeholder="비밀번호 확인">
+        <span v-if="!checkpwFilled" style="color: red;">비밀번호가 일치하지 않습니다!</span>
+      </div>
+
     </div>
     <button id="button" @click="submit">Submit</button>
   </div>
@@ -133,6 +139,7 @@ export default {
   position: relative;
   top: 40px;
   border-radius: 40px;
-
+  width: 70%;
+  margin: auto;
 }
 </style>
