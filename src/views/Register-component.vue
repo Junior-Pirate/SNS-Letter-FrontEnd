@@ -7,10 +7,10 @@
     <button id="button" @click="movetologin">로그인</button>
   </div>
   <div id="register-form">
-    <div>
+    <div id="register-con1">
       <p>HI</p>
     </div>
-    <div>
+    <div id="register-con2">
       <div>
         <input type="text" v-model="name" placeholder="이름을 입력해주세요.">
         <span v-if="!nameFilled" style="color: red;">이름이 비어있습니다!</span>
@@ -27,9 +27,8 @@
         <input type="password" v-model="again_pw" placeholder="비밀번호 확인">
         <span v-if="!checkpwFilled" style="color: red;">비밀번호가 일치하지 않습니다!</span>
       </div>
-
     </div>
-    <button id="button" @click="submit">Submit</button>
+
   </div>
   </body>
   </html>
@@ -141,5 +140,19 @@ export default {
   border-radius: 40px;
   width: 70%;
   margin: auto;
+}
+
+#register-con1 {
+  background: #6654AE;
+  width: 30%;
+  float: left;
+  margin-right: 20px;
+}
+
+#register-con2 {
+  width: 70%;
+  float: right;
+  background: #6654AE;
+
 }
 </style>
