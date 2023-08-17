@@ -66,7 +66,9 @@ body {
   text-align: center;
   font-size: 20px;
   margin-left: 4px;
+  margin-bottom: 10px;
 }
+
 
 #summary {
   font-family: normalfont;
