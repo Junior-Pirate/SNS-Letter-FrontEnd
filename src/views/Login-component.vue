@@ -1,25 +1,31 @@
 <template>
-  <div>
-    <div>
-      <img alt="Vue logo" src="../assets/logo.png">
+  <body>
+  <h1 id="title">Snsletter</h1>
+  <div id="div-right">
+    <button id="button" @click="movetohome">홈</button>
+    <button id="button" @click="movetoregister">회원가입</button>
+  </div>
+  <div id="login-background">
+    <div id="login-form1">
+      <p>이메일</p>
+      <p>비밀번호</p>
+
     </div>
-    <div id="div-right">
-      <button id="button" @click="movetohome">홈</button>
-      <button id="button" @click="movetoregister">회원가입</button>
-    </div>
-    <div>
+    <div id="login-form2">
       <div>
         <input type="email" v-model="email" placeholder="이메일을 입력해주세요.">
         <span v-if="!emailFilled" style="color: red;">이메일이 비어있습니다!</span>
-      </div>
-      <div>
+
         <input type="password" v-model="pw" placeholder="비밀번호를 입력해주세요.">
         <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
+
       </div>
     </div>
-    <button @click="submit">Submit</button>
-
   </div>
+  <div>
+    <button id="submit-button" @click="submit">로그인 하기</button>
+  </div>
+  </body>
 </template>
 
 
@@ -98,12 +104,36 @@ export default {
 
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+#login-background {
+  background: #6554AF;
+  width: 500px;
+  height: 110px;
+  border-radius: 50px;
+  display: flex;
+  margin: 0 auto;
+  clear: both;
 }
+
+#login-form1 {
+  background: gray;
+  width: 170px;
+  height: 80%;
+  border-radius: 50px;
+  float: left;
+  top: 10px;
+  left: 20px;
+  position: relative;
+}
+
+#login-form2 {
+  width: 280px;
+  height: 50%;
+  border-radius: 50px;
+  float: right;
+  top: 13px;
+  left: 30px;
+  position: relative;
+}
+
 </style>

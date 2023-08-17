@@ -6,29 +6,33 @@
     <button id="button" @click="movetohome">홈</button>
     <button id="button" @click="movetologin">로그인</button>
   </div>
-  <div id="register-form">
-    <div id="register-con1">
-      <p>HI</p>
+  <div id="register-background">
+    <div id="register-form1">
+      <p>이름</p>
+      <p>이메일</p>
+      <p>비밀번호</p>
+      <p>비밀번호 확인</p>
+
     </div>
-    <div id="register-con2">
+    <div id="register-form2">
       <div>
         <input type="text" v-model="name" placeholder="이름을 입력해주세요.">
         <span v-if="!nameFilled" style="color: red;">이름이 비어있습니다!</span>
-      </div>
-      <div>
+
         <input type="email" v-model="email" placeholder="이메일을 입력해주세요.">
         <span v-if="!emailFilled" style="color: red;">이메일이 비어있습니다!</span>
-      </div>
-      <div>
+
         <input type="password" v-model="pw" placeholder="비밀번호를 입력해주세요.">
         <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
-      </div>
-      <div>
+
         <input type="password" v-model="again_pw" placeholder="비밀번호 확인">
         <span v-if="!checkpwFilled" style="color: red;">비밀번호가 일치하지 않습니다!</span>
+
       </div>
     </div>
-
+  </div>
+  <div>
+    <button id="submit-button" @click="submit">회원가입 하기</button>
   </div>
   </body>
   </html>
@@ -127,32 +131,63 @@ export default {
 </script>
 
 <style>
+input {
+  width: 90%;
+  height: 28px;
+  font-family: normalfont;
+  margin-bottom: 7px;
+  border-radius: 15px;
+
+}
 #div-right {
   float: right;
   right: 40px;
   position: relative;
 }
 
-#register-form {
-  background: #6654AE;
-  position: relative;
-  top: 40px;
-  border-radius: 40px;
-  width: 70%;
-  margin: auto;
+#register-background {
+  background: #6554AF;
+  width: 500px;
+  height: 200px;
+  border-radius: 50px;
+  display: flex;
+  margin: 0 auto;
+  clear: both;
 }
 
-#register-con1 {
-  background: #6654AE;
-  width: 30%;
+#register-form1 {
+  background: gray;
+  width: 170px;
+  height: 88%;
+  border-radius: 50px;
   float: left;
-  margin-right: 20px;
+  top: 10px;
+  left: 20px;
+  position: relative;
 }
 
-#register-con2 {
-  width: 70%;
+#register-form2 {
+  width: 280px;
+  height: 88%;
+  border-radius: 50px;
   float: right;
-  background: #6654AE;
-
+  top: 13px;
+  left: 30px;
+  position: relative;
 }
+
+#submit-button {
+  font-family: normalfont;
+  background: #E966A0;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin-left: 4px;
+  margin-bottom: 10px;
+  top: 10px;
+  position: relative;
+}
+
 </style>
