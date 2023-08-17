@@ -1,5 +1,7 @@
 <template>
-  <div id="backgound">
+  <html>
+  <body>
+  <div>
     <h1 id="title">Snsletter</h1>
     <div>
       <button id="button" @click="movetologin">로그인</button>
@@ -11,20 +13,19 @@
       <a>익명의 편지를 통해 친구들과 솔직하고 소중한 감정을 나눌수 있어요!</a><br>
     </div>
   </div>
+  </body>
+  </html>
 </template>
 
 <script>
 export default {
   methods: {
     // 페이지 이동시 params로 게시판 구분, query로 페이지 구분
-    movetologin(){
-      window.location.href='/login'
+    movetologin() {
+      window.location.href = '/login'
     },
-    movetoregister(){
-      window.location.href='/register'
-    },
-    movetosearch(){
-      window.location.href='/search'
+    movetoregister() {
+      window.location.href = '/register'
     },
   },
 };
@@ -45,16 +46,17 @@ export default {
   font-style: normal;
 }
 
-#backgound {
-  height: 700px;
+body {
   background: #2B2730;
 }
+
 #title {
   position: relative;
   top: 20px;
   font-family: titlefont;
   font-size: 80px;
 }
+
 #button {
   font-family: normalfont;
   background: #E966A0;
@@ -64,7 +66,9 @@ export default {
   text-align: center;
   font-size: 20px;
   margin-left: 4px;
+  margin-bottom: 10px;
 }
+
 
 #summary {
   font-family: normalfont;

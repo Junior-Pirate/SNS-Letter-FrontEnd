@@ -3,7 +3,9 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "@/views/Home-component.vue";
 import Register from "@/views/Register-component.vue";
 import Login from "@/views/Login-component.vue";
-import Search from "@/views/search-component.vue";
+import Letterbox from "@/views/letterbox-component.vue"
+import Error from "@/views/404error-component.vue"
+import Test from "@/views/Test-component.vue"
 const routes = [
     {
         path: "/home",
@@ -21,10 +23,20 @@ const routes = [
         component: Login,
     },
     {
-        path: "/search",
-        name: "Search",
-        component: Search,
+        path: "/letterbox",
+        name: "Letterbox",
+        component: Letterbox,
     },
+    {
+        path: "/:catchAll(.*)",
+        name: "404",
+        component: Error,
+    },
+    {
+        path: "/test",
+        name: "Test",
+        component: Test,
+    }
 ];
 
 const router = createRouter({
