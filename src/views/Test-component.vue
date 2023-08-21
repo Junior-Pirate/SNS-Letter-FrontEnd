@@ -1,7 +1,7 @@
 <template>
   <html>
   <body>
-  <h1 id="title">Snsletter</h1>
+  <h1 id="title"> Snsletter</h1>
   <div id="div-right">
     <button id="button" @click="movetohome">홈</button>
     <button id="button" @click="movetologin">로그인</button>
