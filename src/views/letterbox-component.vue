@@ -3,27 +3,10 @@
   <h1 id="title">Snsletter</h1>
   <div id="div-right">
     <button id="button" @click="movetohome">홈</button>
-    <button id="button" @click="movetoregister">회원가입</button>
   </div>
   <div id="login-background">
-    <div id="login-form1">
-      <p>이메일</p>
-      <p>비밀번호</p>
-
-    </div>
     <div id="login-form2">
-      <div>
-        <input type="email" v-model="email" placeholder="이메일을 입력해주세요.">
-        <span v-if="!emailFilled" style="color: red;">이메일이 비어있습니다!</span>
-
-        <input type="password" v-model="pw" placeholder="비밀번호를 입력해주세요.">
-        <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
-
-      </div>
     </div>
-  </div>
-  <div>
-    <button id="submit-button" @click="submit">로그인 하기</button>
   </div>
   </body>
 </template>
@@ -91,9 +74,6 @@ export default {
         // 오류 처리
         console.error(error);
       }
-    },
-    movetoregister() {
-      window.location.href = '/register'
     },
     movetohome() {
       window.location.href = '/home'
