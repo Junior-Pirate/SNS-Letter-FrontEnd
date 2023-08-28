@@ -28,6 +28,9 @@ export default {
     movetoregister() {
       window.location.href = '/register'
     },
+    movetoletterbox() {
+      window.location.href = '/letterbox/:userEmail'
+    }
   },
 };
 </script>
