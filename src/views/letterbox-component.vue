@@ -13,28 +13,14 @@
 
 
 <script>
-import axios from 'axios';
-
 export default {
-  mounted() {
-    axios.post('http://localhost:9000/check', {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    })
-        .then(response => {
-          // 보호된 데이터 처리
-          console.log('success')
-          console.log(response.data);
-        })
-        .catch(error => {
-          // 인증 오류 처리
-          console.log('fail')
-          console.error(error);
-        });
-  }
-}
-
+  methods: {
+    // 페이지 이동시 params로 게시판 구분, query로 페이지 구분
+    movetohome() {
+      window.location.href = '/home'
+    },
+  },
+};
 </script>
 
 
