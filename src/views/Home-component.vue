@@ -6,6 +6,7 @@
     <div>
       <button id="button" @click="movetologin">로그인</button>
       <button id="button" @click="movetoregister">회원가입</button>
+      <button id="button" @click="movetoletterbox">편지함</button>
     </div>
     <div id="summary">
       <a>진실된 연결을 통해 번성하는 저희 플렛폼에 오신것을 환영합니다♥</a><br>

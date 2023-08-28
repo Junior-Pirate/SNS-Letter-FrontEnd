@@ -23,7 +23,7 @@ const routes = [
         component: Login,
     },
     {
-        path: "/letterbox",
+        path: "/letterbox/:userEmail",
         name: "Letterbox",
         component: Letterbox,
     },
