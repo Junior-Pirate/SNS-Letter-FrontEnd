@@ -30,9 +30,6 @@
 
 
 <script>
-import axios from 'axios';
-
-
 export default {
   data() {
     return {
@@ -43,10 +40,6 @@ export default {
       items: [], // 빈 배열로 초기화하여 받은 아이템을 저장합니다.
     };
   },
-  created() {
-    // 컴포넌트가 생성될 때 데이터를 가져옵니다.
-    this.fetchItems();
-  },
   methods: {
     //POST 요청
     async submit() {
@@ -55,22 +48,9 @@ export default {
         email: this.email,
         pw: this.pw,
       };
-      // 입력란이 채워져있는지 확인.
-      if (this.email.trim() === '') {
-        this.emailFilled = false;
-      } else {
-        this.emailFilled = true;
-        console.log('Email:', this.email);
-      }
-      if (this.pw.trim() === '') {
-        this.pwFilled = false;
-      } else {
-        this.pwFilled = true;
-      }
-
       try {
         // POST 요청을 보냅니다.
-        const response = await fetch('http://localhost:9000/login', {
+        const response = await fetch('http://localhost:9000/user/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -81,24 +61,17 @@ export default {
           })
         });
         const data = await response.json();
-
-        // 쿠키 저장 (Pseudocode, 실제로는 브라우저 쿠키 API 사용)
-        this.$cookies.set('accessToken', data.accessToken)
-        this.$cookies.set('refreshToken', data.refreshToken)
-
-      } catch (error) {
-        // 오류 처리
-        console.error(error);
-      }
-    },
-    //GET 요청
-    async fetchItems() {
-      try {
-        // GET 요청을 보냅니다.
-        const response = await axios.get('http://localhost:9000/login');
-
-        // 응답 데이터를 받아서 items에 저장합니다.
         this.items = response.data;
+
+        if (response.data.loginSuccess === false) {
+          alert(response.data.message);
+        } else if (response.status === 200) {
+          // 쿠키 저장 (Pseudocode, 실제로는 브라우저 쿠키 API 사용)
+          this.$cookies.set('accessToken', data.accessToken)
+          this.$cookies.set('refreshToken', data.refreshToken)
+          this.$router.push('letterbox/:userEmail');
+        }
+
       } catch (error) {
         // 오류 처리
         console.error(error);
