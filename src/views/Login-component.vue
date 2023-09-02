@@ -14,10 +14,8 @@
     <div id="login-form2">
       <div>
         <input type="email" v-model="email" placeholder="이메일을 입력해주세요.">
-        <span v-if="!emailFilled" style="color: red;">이메일이 비어있습니다!</span>
 
         <input type="password" v-model="pw" placeholder="비밀번호를 입력해주세요.">
-        <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
 
       </div>
     </div>
@@ -36,9 +34,7 @@ export default {
   data() {
     return {
       email: '',
-      emailFilled: true,
       pw: '',
-      pwFilled: true,
       items: [], // 빈 배열로 초기화하여 받은 아이템을 저장합니다.
     };
   },
@@ -58,12 +54,12 @@ export default {
           alert(response.data.message);
         } else if (response.status === 200) {
           alert("로그인 성공!")
+
           this.$router.push('letterbox/:userEmail');
         }
 
       } catch (error) {
         // 오류 처리
-        console.log(11111)
         console.error(error);
       }
     },
