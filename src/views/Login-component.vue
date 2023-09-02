@@ -30,6 +30,8 @@
 
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -50,30 +52,18 @@ export default {
       };
       try {
         // POST 요청을 보냅니다.
-        const response = await fetch('http://localhost:9000/user/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: payload.email,
-            pw: payload.pw
-          })
-        });
-        const data = await response.json();
-        this.items = response.data;
+        const response = await axios.post('http://localhost:9000/user/login', payload)
 
         if (response.data.loginSuccess === false) {
           alert(response.data.message);
         } else if (response.status === 200) {
-          // 쿠키 저장 (Pseudocode, 실제로는 브라우저 쿠키 API 사용)
-          this.$cookies.set('accessToken', data.accessToken)
-          this.$cookies.set('refreshToken', data.refreshToken)
+          alert("로그인 성공!")
           this.$router.push('letterbox/:userEmail');
         }
 
       } catch (error) {
         // 오류 처리
+        console.log(11111)
         console.error(error);
       }
     },
