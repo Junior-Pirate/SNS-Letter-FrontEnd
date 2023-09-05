@@ -39,6 +39,16 @@ export default {
     };
   },
   methods: {
+    setAccessTokenCookie(accessToken) {
+      //쿠키 만료 시간
+      const maxAge = 60;
+
+      // 현재 시간에 만료한 시간을 더해 만료 날짜를 계산
+      const expires = new Date(Date.now() + maxAge * 1000);
+
+      //쿠키 설정
+      document.cookie = `accessToken=${accessToken}; expires=${expires.toUTCString()}; path=/; secure`;
+    },
     //POST 요청
     async submit() {
       // 요청 페이로드를 준비합니다.
@@ -50,9 +60,13 @@ export default {
         // POST 요청을 보냅니다.
         const response = await axios.post('http://localhost:9000/user/login', payload)
 
+        const data = await response.json();
+        const accessToken = data.accessToken;
+
         if (response.data.loginSuccess === false) {
           alert(response.data.message);
         } else if (response.status === 200) {
+          this.setAccessTokenCookie(accessToken);
           alert("로그인 성공!")
 
           this.$router.push('letterbox/:userEmail');
@@ -63,6 +77,7 @@ export default {
         console.error(error);
       }
     },
+
     movetoregister() {
       window.location.href = '/register'
     },
