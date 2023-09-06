@@ -59,13 +59,12 @@ export default {
       try {
         // POST 요청을 보냅니다.
         const response = await axios.post('http://localhost:9000/user/login', payload)
-
-        const data = await response.json();
-        const accessToken = data.accessToken;
-
         if (response.data.loginSuccess === false) {
           alert(response.data.message);
         } else if (response.status === 200) {
+
+          const accessToken = response.data.accessToken;
+
           this.setAccessTokenCookie(accessToken);
           alert("로그인 성공!")
 
