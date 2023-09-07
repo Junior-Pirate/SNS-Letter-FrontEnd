@@ -14,10 +14,8 @@
     <div id="login-form2">
       <div>
         <input type="email" v-model="email" placeholder="이메일을 입력해주세요.">
-        <span v-if="!emailFilled" style="color: red;">이메일이 비어있습니다!</span>
 
         <input type="password" v-model="pw" placeholder="비밀번호를 입력해주세요.">
-        <span v-if="!pwFilled" style="color: red;">비밀번호가 비어있습니다!</span>
 
       </div>
     </div>
@@ -30,24 +28,27 @@
 
 
 <script>
-import axios from 'axios';
-
+import axios from 'axios'
 
 export default {
   data() {
     return {
       email: '',
-      emailFilled: true,
       pw: '',
-      pwFilled: true,
       items: [], // 빈 배열로 초기화하여 받은 아이템을 저장합니다.
     };
   },
-  created() {
-    // 컴포넌트가 생성될 때 데이터를 가져옵니다.
-    this.fetchItems();
-  },
   methods: {
+    setAccessTokenCookie(accessToken) {
+      //쿠키 만료 시간
+      const maxAge = 300;
+
+      // 현재 시간에 만료한 시간을 더해 만료 날짜를 계산
+      const expires = new Date(Date.now() + maxAge * 1000);
+
+      //쿠키 설정
+      document.cookie = `accessToken=${accessToken}; expires=${expires.toUTCString()}; path=/; secure`;
+    },
     //POST 요청
     async submit() {
       // 요청 페이로드를 준비합니다.
@@ -55,55 +56,27 @@ export default {
         email: this.email,
         pw: this.pw,
       };
-      // 입력란이 채워져있는지 확인.
-      if (this.email.trim() === '') {
-        this.emailFilled = false;
-      } else {
-        this.emailFilled = true;
-        console.log('Email:', this.email);
-      }
-      if (this.pw.trim() === '') {
-        this.pwFilled = false;
-      } else {
-        this.pwFilled = true;
-      }
-
       try {
         // POST 요청을 보냅니다.
-        const response = await fetch('http://localhost:9000/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: payload.email,
-            pw: payload.pw
-          })
-        });
-        const data = await response.json();
+        const response = await axios.post('http://localhost:9000/user/login', payload)
+        if (response.data.loginSuccess === false) {
+          alert(response.data.message);
+        } else if (response.status === 200) {
 
-        // 쿠키 저장 (Pseudocode, 실제로는 브라우저 쿠키 API 사용)
-        this.$cookies.set('accessToken', data.accessToken)
-        this.$cookies.set('refreshToken', data.refreshToken)
+          const accessToken = response.data.accessToken;
+
+          this.setAccessTokenCookie(accessToken);
+          alert("로그인 성공!")
+
+          this.$router.push('letterbox/:userEmail');
+        }
 
       } catch (error) {
         // 오류 처리
         console.error(error);
       }
     },
-    //GET 요청
-    async fetchItems() {
-      try {
-        // GET 요청을 보냅니다.
-        const response = await axios.get('http://localhost:9000/login');
 
-        // 응답 데이터를 받아서 items에 저장합니다.
-        this.items = response.data;
-      } catch (error) {
-        // 오류 처리
-        console.error(error);
-      }
-    },
     movetoregister() {
       window.location.href = '/register'
     },
