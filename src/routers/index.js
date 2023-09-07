@@ -4,6 +4,7 @@ import Home from "@/views/Home-component.vue";
 import Register from "@/views/Register-component.vue";
 import Login from "@/views/Login-component.vue";
 import Letterbox from "@/views/letterbox-component.vue"
+import Writeletter from "@/views/Writeletter-component.vue"
 import Error from "@/views/404error-component.vue"
 import Test from "@/views/Test-component.vue"
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
         path: "/letterbox/:userEmail",
         name: "Letterbox",
         component: Letterbox,
+    },
+    {
+        path: "/writeletter",
+        name: "Writeletter",
+        component: Writeletter,
     },
     {
         path: "/:catchAll(.*)",
