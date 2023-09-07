@@ -41,7 +41,7 @@ export default {
   methods: {
     setAccessTokenCookie(accessToken) {
       //쿠키 만료 시간
-      const maxAge = 60;
+      const maxAge = 300;
 
       // 현재 시간에 만료한 시간을 더해 만료 날짜를 계산
       const expires = new Date(Date.now() + maxAge * 1000);
