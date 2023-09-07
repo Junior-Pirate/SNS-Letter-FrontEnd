@@ -68,7 +68,7 @@ export default {
           this.setAccessTokenCookie(accessToken);
           alert("로그인 성공!")
 
-          this.$router.push('letterbox/:userEmail');
+          this.$router.push('/test');
         }
 
       } catch (error) {
