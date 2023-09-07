@@ -2,19 +2,18 @@
   <html>
   <body>
   <h1 id="title">Snsletter</h1><br>
+  <div id="div-right">
+    <button id="button" @click="logout">로그아웃</button>
+  </div>
   <h2 id="letterbox-owner">홍길동의 편지함</h2>
-  <div>
+  <div id="letter">
     <div>
-      <button id="button" @click="logout">로그아웃</button>
+      <a id="letter-title-intro">제목 : </a>
+      <input id="letter-title" type="text" v-model="title" placeholder="제목">
     </div>
-    <div id="summary">
-      <a>Test page</a><br>
-      <a>Test page</a><br>
-      <a>Test page</a><br>
-      <a>Test page</a><br>
-      <a>Test page</a><br>
-      <a>Test page</a><br>
-      <a>Test page</a>
+    <div>
+      <a id="letter-nickname-intro">닉네임 : </a>
+      <input id="letter-nickname" type="text" v-model="nickname" placeholder="닉네임">
     </div>
   </div>
   </body>
@@ -65,8 +64,56 @@ export default {
 <style>
 #letterbox-owner {
   position: relative;
-  font-family: titlefont;
-  font-size: 70px;
+  font-family: normalfont;
+  color: white;
+  font-size: 40px;
+  text-align: center;
   bottom: 70px;
 }
+
+#letter {
+  background: #624F80;
+  position: relative;
+  width: 700px;
+  height: 450px;
+  border-radius: 50px;
+  margin: 0 auto;
+  clear: both;
+  bottom: 60px;
+}
+#letter-title-intro {
+  font-family: normalfont;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 10px;
+}
+
+#letter-title {
+  background: white;
+  position: relative;
+  width: 400px;
+  height: 30px;
+  border-radius: 50px;
+  top: 10px;
+}
+
+#letter-nickname-intro {
+  font-family: normalfont;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 10px;
+}
+
+#letter-nickname {
+  background: white;
+  position: relative;
+  width: 100px;
+  height: 30px;
+  border-radius: 50px;
+  position: relative;
+  top: 10px;
+}
+
 </style>
