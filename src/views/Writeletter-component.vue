@@ -17,8 +17,11 @@
     </div>
     <div>
       <a id="letter-detail-intro">내용 : </a>
-      <input id="letter-detail" type="text" v-model="detail" placeholder="내용을 입력하세요">
+      <input id="letter-detail" type="textarea" style="word-wrap:break-word" v-model="detail" placeholder="내용을 입력하세요">
     </div>
+  </div>
+  <div>
+    <button id="access_button" @click="createletter">편지 등록</button>
   </div>
   </body>
   </html>
@@ -31,29 +34,31 @@ import axios from "axios";
 export default {
   data() {
     return {
-      accessToken: '',
+      title: '',
+      nickname: '',
+      detail: '',
     };
   },
   methods: {
     //POST 요청
-    async logout() {
+    async access() {
       // 요청 페이로드를 준비합니다.
       const payload = {
-        accessToken: this.accessToken,
+        title: this.title,
+        nickname: this.nickname,
+        detail: this.detail,
       };
       try {
         // POST 요청을 보냅니다.
-        const response = await axios.post('http://localhost:9000/user/logout', payload)
-        if (response.data.loginSuccess === false) {
+        const response = await axios.post('http://localhost:9000/letter/letterCreate', payload)
+        if (response.data.LetterCreate === false) {
           alert(response.data.message);
-        } else if (response.status === 200) {
+        } else {
 
-          const accessToken = response.data.accessToken;
 
-          this.setAccessTokenCookie(accessToken);
-          alert("로그인 성공!")
+          alert("편지 작성 성공!")
 
-          this.$router.push('/test');
+          this.$router.push('/exit');
         }
 
       } catch (error) {
@@ -73,6 +78,7 @@ export default {
   font-size: 40px;
   text-align: center;
   bottom: 70px;
+  left: 40px;
 }
 
 #letter {
@@ -85,6 +91,7 @@ export default {
   clear: both;
   bottom: 60px;
 }
+
 #letter-title-intro {
   font-family: normalfont;
   color: white;
@@ -137,5 +144,20 @@ export default {
   position: relative;
   top: 10px;
 }
+
+#access_button {
+  font-family: normalfont;
+  background: #E966A0;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin-left: 4px;
+  margin-bottom: 10px;
+  bottom: 50px;
+  position: relative;
+}
+
 
 </style>
