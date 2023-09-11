@@ -9,11 +9,15 @@
   <div id="letter">
     <div>
       <a id="letter-title-intro">제목 : </a>
-      <input id="letter-title" type="text" v-model="title" placeholder="제목">
+      <input id="letter-title" type="text" v-model="title" placeholder="제목을 입력하세요">
     </div>
     <div>
       <a id="letter-nickname-intro">닉네임 : </a>
-      <input id="letter-nickname" type="text" v-model="nickname" placeholder="닉네임">
+      <input id="letter-nickname" type="text" v-model="nickname" placeholder="닉네임을 입력하세요">
+    </div>
+    <div>
+      <a id="letter-detail-intro">내용 : </a>
+      <input id="letter-detail" type="text" v-model="detail" placeholder="내용을 입력하세요">
     </div>
   </div>
   </body>
@@ -75,7 +79,7 @@ export default {
   background: #624F80;
   position: relative;
   width: 700px;
-  height: 450px;
+  height: 520px;
   border-radius: 50px;
   margin: 0 auto;
   clear: both;
@@ -111,6 +115,24 @@ export default {
   position: relative;
   width: 100px;
   height: 30px;
+  border-radius: 50px;
+  position: relative;
+  top: 10px;
+}
+
+#letter-detail-intro {
+  font-family: normalfont;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 10px;
+}
+
+#letter-detail {
+  background: white;
+  position: relative;
+  width: 550px;
+  height: 400px;
   border-radius: 50px;
   position: relative;
   top: 10px;
