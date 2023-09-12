@@ -20,7 +20,6 @@
 <script>
 export default {
   methods: {
-    // 페이지 이동시 params로 게시판 구분, query로 페이지 구분
     movetologin() {
       window.location.href = '/login'
     },

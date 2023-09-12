@@ -55,9 +55,7 @@ export default {
           alert(response.data.message);
         } else {
 
-
           alert("편지 작성 성공!")
-
           this.$router.push('/exit');
         }
 
