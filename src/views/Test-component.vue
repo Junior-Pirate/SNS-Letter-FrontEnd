@@ -3,7 +3,8 @@
   <body>
   <div>
     <div>
-      <button id="button" @click="logout">로그아웃</button>
+      <button id="button" @click="checktokenvalue">토큰값확인</button>
+
     </div>
     <div id="summary">
       <a>Test page</a><br>
@@ -21,8 +22,6 @@
 
 <script>
 
-import axios from "axios";
-
 export default {
   data() {
     return {
@@ -30,32 +29,15 @@ export default {
     };
   },
   methods: {
-    //POST 요청
-    async logout() {
-      // 요청 페이로드를 준비합니다.
-      const payload = {
-        accessToken: this.accessToken,
-      };
-      try {
-        // POST 요청을 보냅니다.
-        const response = await axios.post('http://localhost:9000/user/logout', payload)
-        if (response.data.loginSuccess === false) {
-          alert(response.data.message);
-        } else if (response.status === 200) {
-
-          const accessToken = response.data.accessToken;
-
-          this.setAccessTokenCookie(accessToken);
-          alert("로그인 성공!")
-
-          this.$router.push('/test');
-        }
-
-      } catch (error) {
-        // 오류 처리
-        console.error(error);
-      }
+    checktokenvalue() {
+      const token = this.getCookie('accessToken');
+      console.log(token)
     },
+    getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
   },
 };
 </script>
