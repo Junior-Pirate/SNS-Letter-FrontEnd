@@ -6,7 +6,7 @@
     <div>
       <button id="button" @click="movetologin">로그인</button>
       <button id="button" @click="movetoregister">회원가입</button>
-      <button id="button" @click="movetoletterbox">편지함</button>
+      <button id="button" @click="movetoletterbox">홈</button>
     </div>
     <div id="summary">
       <a>작성하신 편지를 편지함에 잘 넣어두었습니다.</a><br>
@@ -28,7 +28,7 @@ export default {
       window.location.href = '/register'
     },
     movetoletterbox() {
-      window.location.href = '/letterbox/:userEmail'
+      window.location.href = '/home'
     }
   },
 };
