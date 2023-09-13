@@ -44,7 +44,7 @@ export default {
       const maxAge = 30;
 
       // 현재 시간에 만료한 시간을 더해 만료 날짜를 계산
-      const expires = new Date(Date.now() + maxAge * 100);
+      const expires = new Date(Date.now() + maxAge * 1000);
 
       //쿠키 설정
       document.cookie = `accessToken=${accessToken}; expires=${expires.toUTCString()}; path=/; secure`;

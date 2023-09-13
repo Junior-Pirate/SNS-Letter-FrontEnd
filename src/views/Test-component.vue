@@ -4,7 +4,7 @@
   <div>
     <div>
       <button id="button" @click="checktokenvalue">토큰값확인</button>
-
+      <button id="button" @click="logout">로그아웃 test</button>
     </div>
     <div id="summary">
       <a>Test page</a><br>
@@ -37,6 +37,9 @@ export default {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
       if (parts.length === 2) return parts.pop().split(';').shift();
+    },
+    logout() {
+      this.$cookies.remove('accessToken')
     }
   },
 };
