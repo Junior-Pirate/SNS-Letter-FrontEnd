@@ -20,29 +20,25 @@ import axios from "axios";
 
 export default {
   methods: {
-    movetoletterbox() {
+    async movetoletterbox() {
       const token = this.getCookie('accessToken');
       if (token === undefined) {
         alert("로그인 후 이용하시기 바랍니다.");
         this.$router.push('/login');
+      } else {
+        try {
+          const response = await axios.post('http://localhost:9000/letter/letterBoxCreate', {}, {
+            headers: {
+              'authorization': `Bearer ${token}`,
+            },
+          });
+          const userID = response.data.userId
+          console.log(userID)
+
+        } catch (error) {
+          console.error(error);
+        }
       }
-      else {
-        axios.post('http://localhost:9000/letter/letterBoxCreate', {}, {
-          headers: {
-            'authorization': `Bearer ${token}`,
-          },
-        })
-            .then(response => {
-              const userID = response.data.userId;
-              this.movetoownletterbox(userID);
-            })
-            .catch(error => {
-              console.error(error);
-            });
-      }
-    },
-    movetoownletterbox(userID) {
-      console.log(userID);
     },
     getCookie(name) {
       const value = `; ${document.cookie}`;
