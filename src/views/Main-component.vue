@@ -32,10 +32,15 @@ export default {
               'authorization': `Bearer ${token}`,
             },
           });
-          const userID = response.data.userId
-          console.log(userID)
+          console.log(1111)
+          console.log('Response Data:', response.data); // 응답 데이터 확인
+
+          const hashedUserId = response.data.hashedUserId; // 수정된 부분
+          console.log('hashedUserId:', hashedUserId);
+
 
         } catch (error) {
+          console.error(111);
           console.error(error);
         }
       }
