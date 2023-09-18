@@ -15,7 +15,6 @@
   </body>
   </html>
 </template>
-
 <script>
 import axios from "axios";
 
@@ -23,9 +22,9 @@ export default {
   methods: {
     movetoletterbox() {
       const token = this.getCookie('accessToken');
-      if(token === undefined) {
-        alert("로그인 후 이용하시기 바랍니다.")
-        this.$router.push('/login')
+      if (token === undefined) {
+        alert("로그인 후 이용하시기 바랍니다.");
+        this.$router.push('/login');
       }
       else {
         axios.post('http://localhost:9000/letter/letterBoxCreate', {}, {
@@ -34,14 +33,16 @@ export default {
           },
         })
             .then(response => {
-              console.log(response.data);
+              const userID = response.data.userId;
+              this.movetoownletterbox(userID);
             })
             .catch(error => {
               console.error(error);
             });
-        alert("NICE");
-        this.$router.push('/letterbox');
       }
+    },
+    movetoownletterbox(userID) {
+      console.log(userID);
     },
     getCookie(name) {
       const value = `; ${document.cookie}`;
