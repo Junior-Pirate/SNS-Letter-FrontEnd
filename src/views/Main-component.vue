@@ -27,11 +27,12 @@ export default {
         this.$router.push('/login');
       } else {
         try {
-          const response = await axios.post('http://localhost:9000/letter/letterBoxCreate', {}, {
+          const response = await axios.get('http://localhost:9000/letter/letterbox', {}, {
             headers: {
-              'authorization': `Bearer ${token}`,
+              'Authorization': `Bearer ${token}`,
             },
           });
+          console.log(token)
           console.log(1111)
           console.log('Response Data:', response.data); // 응답 데이터 확인
 
