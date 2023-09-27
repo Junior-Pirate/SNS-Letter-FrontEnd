@@ -27,7 +27,7 @@ export default {
         this.$router.push('/login');
       } else {
         try {
-          const response = await axios.get('http://localhost:9000/letter/letterbox', {}, {
+          const response = await axios.get('http://localhost:9000/letter/letterbox', {
             headers: {
               'Authorization': `Bearer ${token}`,
             },

@@ -81,7 +81,7 @@ export default {
       window.location.href = '/login'
     },
     movetohome() {
-      window.location.href = '/home'
+      window.location.href = '/main'
     },
   },
 };

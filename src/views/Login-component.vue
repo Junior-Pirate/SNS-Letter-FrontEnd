@@ -68,7 +68,7 @@ export default {
           this.setAccessTokenCookie(accessToken);
           alert("로그인 성공!")
 
-          this.$router.push('/test');
+          this.$router.push('/main');
         }
 
       } catch (error) {
@@ -81,7 +81,7 @@ export default {
       window.location.href = '/register'
     },
     movetohome() {
-      window.location.href = '/home'
+      window.location.href = '/main'
     },
   },
 };
