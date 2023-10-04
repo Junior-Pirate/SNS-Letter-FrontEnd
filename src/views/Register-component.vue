@@ -61,7 +61,6 @@ export default {
       try {
         // POST 요청을 보냅니다.
         const response = await axios.post('http://localhost:9000/user/register', payload);
-
         this.items = response.data;
 
         if (response.data.registerSuccess === false) {
@@ -82,7 +81,7 @@ export default {
       window.location.href = '/login'
     },
     movetohome() {
-      window.location.href = '/home'
+      window.location.href = '/main'
     },
   },
 };
