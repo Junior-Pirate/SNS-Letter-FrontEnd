@@ -7,6 +7,8 @@
       <button id="button" @click="logout">로그아웃 test</button>
     </div>
     <div id="summary">
+      <h1>편지함</h1>
+      <a>사용자 ID: {{ $router.params.userID}}</a>
       <a>Test page</a><br>
       <a>Test page</a><br>
       <a>Test page</a><br>

@@ -27,13 +27,13 @@ export default {
         this.$router.push('/login');
       } else {
         try {
+          console.log(123)
           const response = await axios.get('http://localhost:9000/letter/letterbox', {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
           });
-          console.log(token)
-          console.log(1111)
+          console.log(321)
           console.log('Response Data:', response.data); // 응답 데이터 확인
 
           const hashedUserId = response.data.hashedUserId; // 수정된 부분

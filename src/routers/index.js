@@ -51,8 +51,8 @@ const routes = [
         component: Error,
     },
     {
-        path: "/test",
-        name: "Test",
+        path: "/user/:userID",
+        name: "letterbox",
         component: Test,
     }
 ];
