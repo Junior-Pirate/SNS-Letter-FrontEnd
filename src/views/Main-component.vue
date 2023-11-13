@@ -6,6 +6,10 @@
     <div>
       <button id="button" @click="movetoletterbox">편지함으로 가기</button>
     </div>
+    <div>
+      <button id="button" @click="checktokenvalue">토큰값확인</button>
+      <button id="button" @click="logout">로그아웃 test</button>
+    </div>
     <div id="summary">
       <a>진실된 연결을 통해 번성하는 저희 플렛폼에 오신것을 환영합니다♥</a><br>
       <a>Snsletter에서 내면의 생각, 비밀스러운 상상, 소중한 감정을 망설임 없이 표현해보세요.</a><br>
@@ -46,11 +50,18 @@ export default {
         }
       }
     },
+    checktokenvalue() {
+      const token = this.getCookie('accessToken');
+      console.log(token)
+    },
     getCookie(name) {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
       if (parts.length === 2) return parts.pop().split(';').shift();
     },
+    logout() {
+      this.$cookies.remove('accessToken')
+    }
   },
 };
 </script>
