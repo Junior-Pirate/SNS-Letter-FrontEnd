@@ -37,13 +37,13 @@ export default {
               'Authorization': `Bearer ${token}`,
             },
           });
-          console.log(321)
-          console.log('Response Data:', response.data); // 응답 데이터 확인
+          if (response.status !== 200) {
+            alert(response.data.message);
+          } else if (response.status === 200) {
+            alert("편지함 생성 성공!")
 
-          const hashedUserId = response.data.hashedUserId; // 수정된 부분
-          console.log('hashedUserId:', hashedUserId);
-
-
+            this.$router.push('/exit')
+          }
         } catch (error) {
           console.error(111);
           console.error(error);
