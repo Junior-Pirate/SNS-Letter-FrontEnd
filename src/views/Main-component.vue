@@ -37,7 +37,7 @@ export default {
               'Authorization': `Bearer ${token}`,
             },
           });
-          if (response.status !== 200) {
+          if (response.data.LetterBoxCreate === false) {
             alert(response.data.message);
           } else if (response.status === 200) {
             alert("편지함 생성 성공!")
