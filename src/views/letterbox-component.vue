@@ -6,6 +6,8 @@
   </div>
   <div id="login-background">
     <div id="login-form2">
+      <a> 이 곳은 개인 편지함 </a><br>
+
     </div>
   </div>
   </body>
@@ -14,6 +16,7 @@
 
 <script>
 export default {
+  props: ['userId'],
   methods: {
     // 페이지 이동시 params로 게시판 구분, query로 페이지 구분
     movetohome() {

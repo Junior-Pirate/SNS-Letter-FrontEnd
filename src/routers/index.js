@@ -9,6 +9,7 @@ import Exit from "@/views/Exit-component.vue";
 import Maintest from "@/views/Main-component.vue"
 import Error from "@/views/404error-component.vue"
 import Test from "@/views/Test-component.vue"
+
 const routes = [
     // {
     //     path: "/home",
@@ -31,9 +32,10 @@ const routes = [
         component: Login,
     },
     {
-        path: "/letterbox/:id",
+        path: "/letterbox/:userId", // 동적 세그먼트 : userId 사용
         name: "Letterbox",
         component: Letterbox,
+        props: true, // URL 파라미터를 컴포넌트 props로 전달
     },
     {
         path: "/writeletter",

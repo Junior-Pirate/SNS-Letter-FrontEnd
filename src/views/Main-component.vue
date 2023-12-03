@@ -49,7 +49,9 @@ export default {
 
             console.log(userId)
 
-            this.$router.push('/exit')
+            this.$router.push({ name: 'Letterbox', params: { userId }})
+
+
           }
         } catch (error) {
           console.error(111);
