@@ -40,9 +40,6 @@ export default {
           if (response.data.LetterBoxCreate === false) {
             alert(response.data.message);
           } else if (response.status === 200) {
-
-            //userId를 받았다고 가정
-            //
             alert("편지함 생성 성공!")
 
             const userId = response.data.userId
@@ -50,11 +47,14 @@ export default {
             console.log(userId)
 
             this.$router.push({ name: 'Letterbox', params: { userId }})
+          } else if (response.status === 250) {
+            alert("미리 생성한 편지함으로 이동합니다.")
 
+            const userId = response.data.userId
 
+            this.$router.push({ name: 'Letterbox', params: { userId }})
           }
         } catch (error) {
-          console.error(111);
           console.error(error);
         }
       }
